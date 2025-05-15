@@ -1,0 +1,33 @@
+{
+    "manifest_version": 3,
+    "name": "AI Summarizer",
+    "description": "This is Created by Yawar Hussain",
+    "version": "1.0",
+    "permission": [
+        "scripting",
+        "activeTab",
+        "storage"
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "logo.png",
+        "default_title": "Cheater"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "options_page": "options.html",
+    "host_permission": [
+        "<all_urls>"
+    ]
+}
