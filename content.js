@@ -1,20 +1,15 @@
-function getArticle() {
-    const article = document.querySelector("article")
-    if (article) {
-        return article.innerText;
-    }
+function getArticleText() {
+    const article = document.querySelector("article");
+    if (article) return article.innerText;
 
-
-
-    const paragraph = Array.from(document.querySelector("p"))
-    return paragraph.map((p) => p.innerText).join("\n")
-
+    // fallback
+    const paragraphs = Array.from(document.querySelectorAll("p"));
+    return paragraphs.map((p) => p.innerText).join("\n");
 }
 
-
-chrome.runtime.onMessage.addListener((request, sender, sentresponse) => {
-    if (request.type === "GET_ARTICLE_TEXT") {
-        const text = getArticle()
-        sentresponse({ text })
+chrome.runtime.onMessage.addListener((req, sender, sendResponse) => {
+    if (req.type === "GET_ARTICLE_TEXT") {
+        const text = getArticleText();
+        sendResponse({ text });
     }
-})
+});

@@ -3,7 +3,7 @@
     "name": "AI Summarizer",
     "description": "This is Created by Yawar Hussain",
     "version": "1.0",
-    "permission": [
+    "permissions": [
         "scripting",
         "activeTab",
         "storage"
@@ -27,7 +27,7 @@
         "service_worker": "background.js"
     },
     "options_page": "options.html",
-    "host_permission": [
+    "host_permissions": [
         "<all_urls>"
     ]
 }
